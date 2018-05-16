@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>report</title>
+    <link href="./css/jquery.toast.min.css" />
+    <link href="./css/normalize.css" />
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #82898d;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.9em;
+        }
+
+        input[type="button"], input[type="submit"], input[type="reset"] {
+            -webkit-appearance: none;
+        }
+        textarea { -webkit-appearance: none;}
+
+
+        .content{
+            position: relative;
+        }
+
+        .form-control-title{
+            color:#3B3B3B;
+        }
+
+        .multiple-box,.radio-box,.textarea-box{
+            margin-left:15px;
+            margin-right:15px;
+            padding-top:10px;
+            padding-bottom:10px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            color:#353535;
+        }
+
+        .check-item,.radio-item{
+            display: block;
+            margin-top:5px;
+        }
+
+        .radio-item{
+            margin-left:5px;
+        }
+
+        input[type='radio'] + label{
+            padding-left: 30px;
+        }
+
+        .textarea-item{
+            display: block;
+            margin-top:10px;
+        }
+
+        .textarea-item textarea{
+            display: block;
+            width:100%;
+            outline:none;
+            -webkit-appearance: none;
+            border:1px solid rgba(0,0,0,0.1);
+            color:#82898d;
+        }
+
+        .btn-box{
+            margin-left:15px;
+            margin-right:15px;
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+
+        .btn-submit{
+            display: block;
+            width:100%;
+            height:40px;
+            border:0;
+            margin-left:50%;
+            transform:translate(-50%,0);
+            border-radius: 10px;
+            font-size:18px;
+            color: #ffffff;
+            background-color: #54c15f;
+        }
+
+        input[type='checkbox'] {
+            opacity: 0;
+            position: absolute;
+            width: 18px;
+        }
+
+        input[type='checkbox'] + label {
+            display:block;
+            margin: 0;
+            clear: none;
+            padding: 5px 0 4px 48px;
+            cursor: pointer;
+            background: url(imgs/checkbox.png) left center/24px no-repeat;
+        }
+
+        input[type='checkbox']:checked + label {
+            background-image: url(imgs/checkbox_on.png);
+        }
+
+        .jq-toast-single{
+            position: absolute;
+            display: block;
+            top:200px;
+            left:50%;
+            min-width: 250px;
+            background-color: rgba(0,0,0,0.8);
+            transform: translate(-50%,0);
+            border-radius: 10px;
+            line-height: 30px;
+            margin:0 auto;
+            font-size: 0.9rem;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+        <div class="multiple-box">
+            <h4 class="form-control-title">What's wrong? Choose the reason to report the issue.</h4>
+            <div class="check-item"><input name="reason" id="reason1" type="checkbox" value="A"><label for="reason1">Taking a long time to connect</label></div>
+            <div class="check-item"><input name="reason" id="reason2" type="checkbox" value="B"><label for="reason2">Unable to connect</label></div>
+            <div class="check-item"><input name="reason" id="reason3" type="checkbox" value="C"><label for="reason3">Connected,but can't access sites/apps</label></div>
+            <div class="check-item"><input name="reason" id="reason4" type="checkbox" value="D"><label for="reason4">Connected, but speed is too slow </label></div>
+            <div class="check-item"><input name="reason" id="reason5" type="checkbox" value="E"><label for="reason5">Auto-disconnected</label></div>
+            <div class="check-item"><input name="reason" id="reason6" type="checkbox" value="F"><label for="reason6">Specific regions' servers can't connect</label></div>
+            <div class="check-item"><input name="reason" id="reason7" type="checkbox" value="G"><label for="reason7">Others </label></div>
+        </div>
+        <div class="radio-box">
+            <h4 class="form-control-title">How often does this occur?</h4>
+            <div class="radio-item"><input type="radio" value="0" name="times" id="radio1" checked><label for="radio1">First time</label></div>
+            <div class="radio-item"><input type="radio" value="1" name="times" id="radio2"><label for="radio2">Sometimes</label></div>
+            <div class="radio-item"><input type="radio" value="2" name="times" id="radio3"><label for="radio3">Every time</label></div>
+        </div>
+        <div class="textarea-box">
+            <h4 class="form-control-title">What's wrong? Choose the reason to report the issue.</h4>
+            <div class="textarea-item"><textarea id="text-reason" cols="20" rows="5" placeholder="  e.g,what happened, steps you took."></textarea><label for="text-reason"></label></div>
+        </div>
+        <div class="btn-box">
+            <input id="submit-btn" class="btn-submit" type="button" name="Submit" value="submit" />
+        </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/jquery.toast.min.js"></script>
+<script>
+    (function($){
+        var subBtn = $("#submit-btn");
+
+        function getToastOptions(text){
+            return {
+                text : text,
+                showHideTransition : 'slide',  // It can be plain, fade or slide
+                textColor : '#ffffff',            // text color
+                allowToastClose : false,       // Show the close button or not
+                hideAfter : 3000,              // `false` to make it sticky or time in miliseconds to hide after
+                stack : false,                     // `false` to show one stack at a time count showing the number of toasts that can be shown at once
+                textAlign : 'left'            // Alignment of text i.e. left, right, center
+            }
+        }
+
+        subBtn.on("click",function(e){
+            e.preventDefault();
+
+            var checkedBoxs = $(":input[type='checkbox']:checked");
+            var otherInput = $("#reason7");
+            var checkedRadio = $(":input[type='radio']:checked");
+            var textarea = $("#text-reason");
+
+            //提交验证
+            if(checkedBoxs.length < 1){
+                $.toast(getToastOptions("Please select at least one question."));
+                return false;
+            }else if(otherInput.is(':checked') && textarea.val().length === 0){
+                $.toast(getToastOptions("Please fill the blank before submitting."));
+                return false;
+            }else if(textarea.val().length === 0){
+                textarea.val('');
+            }
+            var issues = [];
+            checkedBoxs.each(function(){
+                issues.push($(this).val());
+            });
+            var deviceId = window.location.hash;
+            if (deviceId.length > 1) {
+                deviceId = deviceId.substring(1, deviceId.length);
+            }
+//            console.log(deviceId);
+            var postData = {
+                issues: issues,
+                frequency: checkedRadio.val(),
+                msg: textarea.val(),
+                did: deviceId
+            };
+//            console.log(JSON.stringify(postData));
+
+            //loading
+            subBtn.val('loading');
+            $.ajax({
+                type: 'post',
+                url: '/api/issueReport',
+                data: postData,
+                dataType:'json',
+                success:function(response, textStatus){
+//                    console.log(JSON.stringify(response))
+                    if(response.statusCode == 1){
+                        $.toast(getToastOptions("Successful submission, we will solve your problem as soon as possible."));
+                        //返回上一页
+                        setTimeout(function () {
+                            window.location.href = 'about:exit';
+                        }, 1000);
+                        return;
+                    }
+                    $.toast(getToastOptions("Submission failed, please try again."));
+                    subBtn.val('submit');
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrow){
+                    $.toast(getToastOptions("Submission failed, please try again."));
+                    subBtn.val('submit');
+                }
+            })
+        })
+
+    })($)
+</script>
+</body>
+</html>

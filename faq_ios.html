@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #82898d;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.9em;
+        }
+
+        a{
+            text-decoration: none;
+            color: #82898d;
+        }
+
+        .content{
+
+        }
+
+        .panel{
+            margin-left:15px;
+            margin-right:15px;
+            margin-top:10px;
+        }
+
+        .panel-heading{
+            position: relative;
+            font-size:0.9rem;
+            padding-bottom: 10px;
+        }
+
+        .panel-heading-up,.panel-heading-down{
+            position: absolute;
+            top:0;
+            left:0;
+            width:24px;
+            height:24px;
+            background-size: contain;
+        }
+
+        .panel-heading-up{
+            background-image: url("./imgs/ic_up.png");
+        }
+
+        .panel-heading-down{
+            background-image: url("./imgs/ic_down.png");
+        }
+
+        .panel-title{
+            margin-left:30px;
+            line-height: 24px;
+            vertical-align: middle;
+            color:#333333;
+        }
+
+        .collapse{
+            display:none;
+            margin-left:30px;
+            padding-right: 10px;
+        }
+
+        .panel .collapse .panel-body a:hover{
+            cursor: pointer;
+        }
+
+        .panel-body p {
+            padding: 3px 0px;
+        }
+
+        .collapse8-url{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-1" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                What is VPN?
+            </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+            <div class="panel-body">
+                VPN is Virtual Private Network. It can unblock sites and protect WIFI Hotspot security and privacy.
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-2" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                How to use WE VPN Pro?
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+                Please check the newest version and upgrade first. Then click "Connect" on homepage. The WE VPN will connect at once.
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-3" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                WE VPN Pro Can't connect?
+            </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body">
+                Make sure your network is connecting. If you're VIP, you're suggested to change to another server.
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-4" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                The Internet is not stable and very slow?
+            </h4>
+        </div>
+        <div id="collapse" class="panel-collapse collapse">
+            <div class="panel-body">
+                <a href="./report.html">Report your problem.</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-5" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                How to free VIP?
+            </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>- Watch rewarded videos.</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-6" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                Meeting troubles when you're paying?
+            </h4>
+        </div>
+        <div id="collapse6" class="panel-collapse collapse">
+            <div class="panel-body">
+                If you're paying with credit or debit cards, You can add the following credit/debit<br/>
+                cards to your account<br/>
+                American Express<br/>
+                Discover<br/>
+                JCB<br/>
+                MasterCard<br/>
+                Visa<br/>
+                Visa Electron<br/>
+                <h4>Fail to paying with credit card</h4>
+                You can choose to pay with direct carrier billing, Google Wallet Balance or Paypal.<br/>
+                If you still meet troubles when paying, it maybe temporary network problems, we suggest you to try one more time.<br/>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-7" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                Is WE VPN Pro safe?
+            </h4>
+        </div>
+        <div id="collapse7" class="panel-collapse collapse">
+            <div class="panel-body">
+                WE VPN can protect your WIFI Hotspot security and privacy. It wouldn't steal any users' information. Please Be Assured Use！
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-8" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                WE VPN Proxy does't support your local language.
+            </h4>
+        </div>
+        <div id="collapse8" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div>Please contact us via Facebook and our Facebook page is: <a class="collapse8-url" href="https://www.facebook.com/WE-VPN-110518116260872/">https://www.facebook.com/WE-VPN-110518116260872/</a>.</div>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-9" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                WE VPN Pro has too many ads?
+            </h4>
+        </div>
+        <div id="collapse9" class="panel-collapse collapse">
+            <div class="panel-body">
+                Ads can bring you more free use time. It can even present VIP to you.
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-10" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                You can't use P2P or bit torrent.
+            </h4>
+        </div>
+        <div id="collapse10" class="panel-collapse collapse">
+            <div class="panel-body">
+                Please don't use bit torrent with VPN and it will get account block.
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <div id="panel-heading-icon-11" class="panel-heading-icon panel-heading-down">
+            </div>
+            <h4 class="panel-title">
+                Can't find your problems?
+            </h4>
+        </div>
+        <div id="collapse11" class="panel-collapse collapse">
+            <div class="panel-body">
+                <a href="about:feedback">You can contact us via feedback.</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<script>
+    (function(){
+        var collapse_btns = document.getElementsByClassName("panel-heading-icon");
+        var collapses= document.getElementsByClassName("collapse");
+        var panel_titles = document.getElementsByClassName("panel-title");
+
+        function clickHandler(i){
+            for(var j=0;j<collapse_btns.length;j++){
+                if( i !== j){
+                    collapses[j].style.display = "none";
+                    collapse_btns[j].setAttribute("class","panel-heading-icon panel-heading-down");
+                }
+            }
+            if(collapses[i].style.display === "block"){
+                collapses[i].style.display = "none";
+                collapse_btns[i].setAttribute("class","panel-heading-icon panel-heading-down");
+            }else{
+                collapses[i].style.display = "block";
+                collapse_btns[i].setAttribute("class","panel-heading-icon panel-heading-up");
+            }
+        }
+
+        for(var i=0;i<collapse_btns.length;i++){
+            (function(i){
+                collapse_btns[i].addEventListener('click',function(e){
+                    e.preventDefault();
+                    clickHandler(i);
+                },false);
+                panel_titles[i].addEventListener('click',function(e){
+                    e.preventDefault();
+                    clickHandler(i);
+                },false);
+            })(i)
+        }
+    })()
+</script>
+</body>
+</html>
